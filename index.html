@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="nycLift">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="main.css">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lato|Roboto" rel="stylesheet">
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js">
+    </script>
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular-route.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular-sanitize.min.js"></script>
+
+
+    <script src="app-module.js"></script>
+    <script src="app-routes.js"></script>
+
+    <script src="main.js"></script>
+</head>
+
+<body ng-controller="mainCtrl">
+    <div class="" ng-init="initialize()">
+
+        <h1>NYC Lift <i class="large material-icons">trending_up </i><span style="font-size:20px;">  over {{data.length}} services </span></h1> 
+      
+
+
+        <div class="row">
+            <div class="col s10 offset-s1">
+                <nav>
+                    <div class="nav-wrapper purple darken-4 ">
+                        <form>
+                            <div class="input-field">
+                                <input id="search" type="search" ng-model="keyword" placeholder="Search for Benefits" required>
+                                <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+                                <i class="material-icons">close</i>
+                                {{inputText}}
+                            </div>
+                        </form>
+                    </div>
+                </nav>
+            </div>
+
+
+        </div>
+
+        <div class="row" class=" ">
+
+            <!--<div class="col s3 offset-s1 totalBenefits">
+                <p>Resources</p>
+                <p>{{data.length}}</p>
+
+            </div>-->
+            <div class="col s8 offset-s2 myContainer" style="color:black">
+                <ul ng-repeat="service in data | filter:keyword ">
+                    <a href="#"><li class="collection-item benefit ">
+                        <div ng-bind-html="service.brief_excerpt"></div>
+
+                       
+                             Agency: <div ng-bind-html="service.government_agency"></div>
+                             Date: <div ng-bind-html="service.date"></div>
+                     
+                     
+                           
+               
+                       
+                       
+                       
+                       
+                    </li></a>
+
+                </ul>
+
+
+
+
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>
